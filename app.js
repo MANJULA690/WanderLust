@@ -66,9 +66,9 @@ const sessionOptions={
 };
 
 
-app.get("/",(req,res)=>{
-    res.send("Hii, i am root");
-});
+// app.get("/",(req,res)=>{
+//     res.send("Hii, i am root");
+// });
 
 app.use(session(sessionOptions));
 app.use(flash());
@@ -90,7 +90,7 @@ app.use((req,res,next)=>{
 
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
-app.use("/", userRouter);
+app.use("/", listingRouter);
 
 
 app.use((err, req, res, next) => {
