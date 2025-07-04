@@ -22,7 +22,6 @@ const listingRouter=require("./routes/listing.js");
 const reviewRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
 
-// const MONGO_URL="mongodb://127.0.0.1:27017/wanderlust";
 const dbUrl=process.env.ATLASDB_URL;
      
 main().then(()=>{
@@ -67,10 +66,6 @@ const sessionOptions={
 };
 
 
-// app.get("/",(req,res)=>{
-//     res.send("Hii, i am root");
-// });
-
 app.use(session(sessionOptions));
 app.use(flash());
 
@@ -88,14 +83,7 @@ app.use((req,res,next)=>{
     next();
 })
 
-// app.get("/demouser",async (req,res)=>{
-//     let fakeUser = new User({
-//         email: "student@gmail.com",
-//         username: "student"
-//     })
-//     let registeredUser= await User.register(fakeUser,"helloworld")
-//     res.send(registeredUser);
-// })
+
 
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
