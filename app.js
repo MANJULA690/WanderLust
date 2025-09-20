@@ -92,6 +92,12 @@ app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter);
 
+// Redirect root to /listings
+app.get("/", (req, res) => {
+    res.redirect("/listings");
+});
+
+
 
 app.use((err, req, res, next) => {
     let { statusCode=500, message="Something went wrong!"} = err;
