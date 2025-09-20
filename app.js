@@ -90,7 +90,7 @@ app.use((req,res,next)=>{
 
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
-app.use("/", listingRouter);
+app.use("/", userRouter);
 
 
 app.use((err, req, res, next) => {
@@ -104,3 +104,4 @@ app.use((err, req, res, next) => {
 app.listen(8080,()=>{
     console.log("App is running on port 8080");
 });
+
